@@ -51,6 +51,12 @@
     {{-- Custom Stylesheets (post AdminLTE) --}}
     @yield('adminlte_css')
 
+    <link rel="stylesheet" type="text/css" href="/css/datatables.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/icheck-bootstrap.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-switch.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-toggle.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css"></link>
+
     {{-- Favicon --}}
     @if(config('adminlte.use_ico_only'))
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}" />
@@ -106,6 +112,36 @@
 
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
+
+    <script src="/js/sweetalert2.min.js"></script>
+    <script src="/js/datatables.min.js"></script>
+    <script src="/js/chart.min.js"></script>
+    <script src="/js/jquery.mask.min.js"></script>
+    <script src="/js/bootstrap-switch.min.js"></script>
+    <script src="/js/bootstrap-toggle.min.js"></script>
+    <script src="/js/dataTables.buttons.min.js"></script>
+    <script src="/js/buttons.bootstrap4.min.js"></script>
+    <script src="/js/services.js"></script>
+    <script src="/vendor/datatables/buttons.server-side.js"></script>
+
+    <script>
+        function confirmarExclusao(registro) {
+            const url = registro.getAttribute("data-rota");
+            swal.fire({
+                title: 'Deseja excluir esse registro?',
+                text: "O registro atualmente selecionado será excluído.",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim',
+                cancelButtonText: 'Não'
+            }).then(function (success) {
+                if (success.value === true) {
+                    window.location.href = url;
+                }
+            })
+        }
+    </script>
 
 </body>
 
