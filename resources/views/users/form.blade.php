@@ -29,7 +29,7 @@
                 @endif
 
                 <div class="row">
-                    <div class="col-lg-8 col-md-12">
+                    <div class="col-lg-12 col-md-12">
                         <div class="card card-info">
                             <div class="card-header">
                                 <h3 class="card-title">Dados do Usuário</h3>
@@ -40,8 +40,8 @@
                                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nome do Usuario']) !!}
                                 </div>
                                 <div class="form-group">
-                                    {!! Form::label('login', 'Login') !!}
-                                    {!! Form::text('login', null, ['class' => 'form-control', 'placeholder' => 'Login do Usuario']) !!}
+                                    {!! Form::label('username', 'Username') !!}
+                                    {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Nome do Usuario']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('email', 'Email') !!}
@@ -56,9 +56,6 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        @component('components.status', ['status' => isset($user) && $user->status == 1 ? 1 : 0])@endcomponent
                     </div>
                 </div>
 

@@ -39,10 +39,9 @@ class UserController extends Controller
     {
         $dados = [
             'name' => $request->name,
-            'login' => $request->login,
+            'username' => $request->username,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'status' => $request->status == '1' ? 1 : 0
+            'password' => bcrypt($request->password)
         ];
 
         User::create($dados);
@@ -86,9 +85,8 @@ class UserController extends Controller
         $dados = [
             'name' => $request->name,
             'email' => $request->email,
-            'login' => $request->login,
-            'password' => $request->password ? bcrypt($request->password) : $user->password,
-            'status' => $request->status == '' ? 0 : 1
+            'username' => $request->username,
+            'password' => $request->password ? bcrypt($request->password) : $user->password
         ];
 
         $user->update($dados);
