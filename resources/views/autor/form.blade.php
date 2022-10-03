@@ -22,10 +22,10 @@
             <div class="card-body">
                 @include('includes.alerts')
 
-                @if (!isset($autores))
+                @if (!isset($autor))
 	    			{!! Form::open(['url' => route('autor.store'), 'files' => true]) !!}
                 @else
-                    {!! Form::model($autores, ['route' => ['autor.update', $autores->id], 'method' => 'PUT', 'files' => true]) !!}
+                    {!! Form::model($autor, ['route' => ['autor.update', $autor->id], 'method' => 'PUT', 'files' => true]) !!}
                 @endif
 
                 <div class="row">
