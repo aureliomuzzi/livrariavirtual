@@ -24,8 +24,8 @@ class AutoresDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
         ->editColumn('action', function($query) {
-            return '<a href="' . route('autores.edit', $query) . '" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Editar Cadastro de Autores"><i class="fas fa-pen text-xs px-1"></i></a>
-            <a onclick="confirmarExclusao(this)" href="javascript:void(0)" data-rota="' . route('autores.destroy', $query->id) . '" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Excluir Registro de Autores"><i class="fas fa-trash text-xs px-1"></i></a>';
+            return '<a href="' . route('autor.edit', $query) . '" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Editar Cadastro de Autores"><i class="fas fa-pen text-xs px-1"></i></a>
+            <a onclick="confirmarExclusao(this)" href="javascript:void(0)" data-rota="' . route('autor.destroy', $query->id) . '" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Excluir Registro de Autores"><i class="fas fa-trash text-xs px-1"></i></a>';
         })
         ->editColumn('firstName', function($query) {
             return $query->firstName;

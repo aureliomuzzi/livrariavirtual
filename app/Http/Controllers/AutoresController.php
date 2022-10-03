@@ -17,7 +17,7 @@ class AutoresController extends Controller
     public function index(AutoresDataTable $dataTable)
     {
         Livros::getAutores();
-        return $dataTable->render('autores.list');
+        return $dataTable->render('autor.list');
     }
 
 
@@ -28,7 +28,7 @@ class AutoresController extends Controller
      */
     public function create()
     {
-        return view('autores.form');
+        return view('autor.form');
     }
 
     /**
@@ -46,7 +46,7 @@ class AutoresController extends Controller
 
         User::create($dados);
 
-        return redirect('/autores')->with('mensagem', 'Registro criado com sucesso!');
+        return redirect('/autor')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -66,10 +66,10 @@ class AutoresController extends Controller
      * @param  \App\Models\Autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function edit(Autores $autores)
+    public function edit(Autores $autor)
     {
-        return view('autores.form', [
-            'autores' => $autores
+        return view('autor.form', [
+            'autor' => $autor
         ]);
     }
 
@@ -80,7 +80,7 @@ class AutoresController extends Controller
      * @param  \App\Models\Autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Autores $autores)
+    public function update(Request $request, Autores $autor)
     {
         $dados = [
             'firstName' => $request->firstName,
@@ -89,7 +89,7 @@ class AutoresController extends Controller
 
         $user->update($dados);
 
-        return redirect('/autores')->with('mensagem', 'Registro criado com sucesso!');
+        return redirect('/autor')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -102,6 +102,6 @@ class AutoresController extends Controller
     {
         $autor = Autores::find($id);
         $autor->delete();
-        return redirect('/autores')->with('mensagem', 'Registro excluído com sucesso!');
+        return redirect('/autor')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

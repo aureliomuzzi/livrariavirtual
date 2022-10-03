@@ -22,15 +22,14 @@ Auth::routes();
 
 Route::middleware('auth')->group(function() {
     Route::get('/', function () {
-         //return view('home');
-        return redirect('/users');
+        return redirect('/livros');
     });
 
     Route::resource('users', UserController::class)->except(['destroy']);
     Route::get('/users/{id}/destroy', [UserController::class, 'destroy'])->name('users.destroy');
 
-    Route::resource('autores', AutoresController::class)->except(['destroy']);
-    Route::get('/autores/{id}/destroy', [AutoresController::class, 'destroy'])->name('autores.destroy');
+    Route::resource('autor', AutoresController::class)->except(['destroy']);
+    Route::get('/autor/{id}/destroy', [AutoresController::class, 'destroy'])->name('autor.destroy');
 
     Route::resource('livros', LivroController::class)->except(['destroy']);
     Route::get('/livros/{id}/destroy', [LivroController::class, 'destroy'])->name('livros.destroy');

@@ -297,7 +297,7 @@ return [
         ],
         [
             'text' => 'Autores',
-            'url'  => 'autores',
+            'url'  => 'autor',
             'icon' => 'fas fa-fw fa-user',
         ],
         [

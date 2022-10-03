@@ -39,7 +39,15 @@ class LivroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = [
+            'autor_id' => $request->autor_id,
+            'title' => $request->title,
+            'isbn' => $request->isbn
+        ];
+
+        Livro::create($dados);
+
+        return redirect('/livros')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -61,7 +69,9 @@ class LivroController extends Controller
      */
     public function edit(Livro $livro)
     {
-        //
+        return view('livros.form', [
+            'livro' => $livro
+        ]);
     }
 
     /**
@@ -73,7 +83,15 @@ class LivroController extends Controller
      */
     public function update(Request $request, Livro $livro)
     {
-        //
+        $dados = [
+            'autor_id' => $request->autor_id,
+            'title' => $request->title,
+            'isbn' => $request->isbn,
+        ];
+
+        $livro->update($dados);
+
+        return redirect('/livros')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -82,8 +100,10 @@ class LivroController extends Controller
      * @param  \App\Models\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Livro $livro)
+    public function destroy($id)
     {
-        //
+        $livro = Livro::find($id);
+        $livro->delete();
+        return redirect('/livros')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

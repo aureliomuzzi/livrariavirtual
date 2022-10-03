@@ -23,9 +23,9 @@
                 @include('includes.alerts')
 
                 @if (!isset($autores))
-	    			{!! Form::open(['url' => route('autores.store'), 'files' => true]) !!}
+	    			{!! Form::open(['url' => route('autor.store'), 'files' => true]) !!}
                 @else
-                    {!! Form::model($autores, ['route' => ['autores.update', $autores->id], 'method' => 'PUT', 'files' => true]) !!}
+                    {!! Form::model($autores, ['route' => ['autor.update', $autores->id], 'method' => 'PUT', 'files' => true]) !!}
                 @endif
 
                 <div class="row">
@@ -51,7 +51,7 @@
 
                 <div class="mt-5">
                     <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Salvar</button>
-                    <a href="{{ route('autores.list') }}" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
+                    <a href="{{ route('autor.index') }}" class="btn btn-danger"><i class="far fa-times-circle"></i> Cancelar</a>
                 </div>
 
                 {!! Form::close() !!}
