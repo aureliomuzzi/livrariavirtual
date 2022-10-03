@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Autores;
 use Illuminate\Http\Request;
 use App\DataTables\AutoresDataTable;
+use App\Services\Livros;
 
 class AutoresController extends Controller
 {
@@ -15,6 +16,7 @@ class AutoresController extends Controller
      */
     public function index(AutoresDataTable $dataTable)
     {
+        Livros::getAutores();
         return $dataTable->render('autores.list');
     }
 

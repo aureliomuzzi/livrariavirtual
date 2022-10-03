@@ -9,6 +9,11 @@ use App\Models\Autores;
 class Livro extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'autor_id',
+        'title',
+        'isbn'
+    ];
 
     public function autores()
     {

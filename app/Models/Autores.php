@@ -11,6 +11,11 @@ class Autores extends Model
     use HasFactory;
     public $table = 'autores';
 
+    protected $fillable = [
+        'firstName',
+        'lastName',
+    ];
+
     public function livros()
     {
         return $this->hasMany(Livro::class);

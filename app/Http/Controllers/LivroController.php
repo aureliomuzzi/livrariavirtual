@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Livro;
 use Illuminate\Http\Request;
 use App\DataTables\LivroDataTable;
+use App\Services\Livros;
 
 class LivroController extends Controller
 {
@@ -15,6 +16,7 @@ class LivroController extends Controller
      */
     public function index(LivroDataTable $dataTable)
     {
+        Livros::getLivros();
         return $dataTable->render('livros.list');
     }
 

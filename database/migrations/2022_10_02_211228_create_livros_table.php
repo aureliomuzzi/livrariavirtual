@@ -20,7 +20,7 @@ class CreateLivrosTable extends Migration
             $table->foreign('autor_id')->references('id')->on('autores')->onUpdate('restrict')->onDelete('restrict');
 
             $table->string('title');
-            $table->string('isbn');
+            $table->string('isbn')->nullable();
             $table->timestamps();
         });
     }
