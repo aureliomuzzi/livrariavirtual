@@ -28,6 +28,9 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
+    'api_icct' => env('API_ICCT'),
+    'api_access_token' => env('API_ACCESS_TOKEN'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
@@ -167,16 +170,16 @@ return [
         /*
          * Package Service Providers...
          */
-
         /*
-         * Application Service Providers...
-         */
+        * Application Service Providers...
+        */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        App\Providers\ApiServiceProvider::class,
+        
     ],
 
     /*
