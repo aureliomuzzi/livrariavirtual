@@ -1,3 +1,5 @@
+Sistema Criado em Laravel 8 com PHP 7.4 e MySQL 5.6
+
 Instruções
 
 1. Criar um banco de dados com nome livraria no MySQL
