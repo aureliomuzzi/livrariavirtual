@@ -12,6 +12,4 @@ Instruções
 
 5. Rodar o comando "php artisan db:seed" para criar usuario e senha de login. USUARIO: admin | SENHA: 123
 
-
-
-
+Obs: Configurações de banco de dados e endpoint estão no arquivo .env-example
