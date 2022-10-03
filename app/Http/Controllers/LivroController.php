@@ -29,9 +29,9 @@ class LivroController extends Controller
      */
     public function create()
     {
-        $autores = Autores::all();
+        $autores = Autores::selectRaw('id, CONCAT(firstName, " ", lastName) as nomeCompleto')->orderBy('nomeCompleto','asc')->get();
         return view('livros.form', [
-            'autores' => $autores
+            'autores' => $autores->pluck('nomeCompleto', 'id'),
         ]);
     }
 

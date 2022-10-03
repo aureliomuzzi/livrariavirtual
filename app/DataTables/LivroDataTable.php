@@ -28,8 +28,7 @@ class LivroDataTable extends DataTable
             <a onclick="confirmarExclusao(this)" href="javascript:void(0)" data-rota="' . route('livros.destroy', $query->id) . '" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Excluir Registro de Livros"><i class="fas fa-trash text-xs px-1"></i></a>';
         })
         ->editColumn('autor_id', function($query) {
-            //return $query->autor_id;
-            return $query->autor->firstName . " " . $query->autor->lastName;
+            return isset($query->autor_id) ? $query->autor->firstName . " " . $query->autor->lastName : null;
         })
         ->editColumn('title', function($query) {
             return $query->title;

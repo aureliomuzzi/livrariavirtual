@@ -44,7 +44,7 @@ class AutoresController extends Controller
             'lastName' => $request->lastName,
         ];
 
-        User::create($dados);
+        Autores::create($dados);
 
         return redirect('/autor')->with('mensagem', 'Registro criado com sucesso!');
     }
@@ -87,7 +87,7 @@ class AutoresController extends Controller
             'lastName' => $request->lastName,
         ];
 
-        $user->update($dados);
+        $autor->update($dados);
 
         return redirect('/autor')->with('mensagem', 'Registro criado com sucesso!');
     }
