@@ -3,6 +3,9 @@
 namespace App\DataTables;
 
 use App\Models\Livro;
+use Illuminate\Database\Eloquent\Builder as QueryBuilder;
+use Yajra\DataTables\EloquentDataTable;
+use Yajra\DataTables\Html\Builder as HtmlBuilder;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -14,15 +17,15 @@ class LivroDataTable extends DataTable
     /**
      * Build DataTable class.
      *
-     * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @param QueryBuilder $query Results from query() method.
+     * @return \Yajra\DataTables\EloquentDataTable
      */
-    public function dataTable($query)
+    public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
         ->editColumn('action', function($query) {
-            return '<a href="' . route('users.edit', $query) . '" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Editar Cadastro de Usuário"><i class="fas fa-pen text-xs px-1"></i></a>
-            <a onclick="confirmarExclusao(this)" href="javascript:void(0)" data-rota="' . route('users.destroy', $query->id) . '" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Excluir Registro de Funcionário"><i class="fas fa-trash text-xs px-1"></i></a>';
+            return '<a href="' . route('livros.edit', $query) . '" class="btn btn-primary btn-xs" data-toggle="tooltip" title="Editar Cadastro de Livros"><i class="fas fa-pen text-xs px-1"></i></a>
+            <a onclick="confirmarExclusao(this)" href="javascript:void(0)" data-rota="' . route('livros.destroy', $query->id) . '" class="btn btn-danger btn-xs" data-toggle="tooltip" title="Excluir Registro de Livros"><i class="fas fa-trash text-xs px-1"></i></a>';
         })
         ->editColumn('autor_id', function($query) {
             return $query->autor_id;
@@ -39,13 +42,13 @@ class LivroDataTable extends DataTable
         ->editColumn('updated_at', function($query) {
             return $query->updated_at->format("d/m/Y H:i");
         })
-        ->rawColumns(['action', 'status']);
+        ->rawColumns(['action']);
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\Livro $model
+     * @param \App\Models\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(Livro $model)
@@ -81,7 +84,7 @@ class LivroDataTable extends DataTable
      *
      * @return array
      */
-    protected function getColumns()
+    protected function getColumns(): array
     {
         return [
             Column::make('action')->title('Ações')->searchable(false)->orderable(false),
@@ -98,8 +101,8 @@ class LivroDataTable extends DataTable
      *
      * @return string
      */
-    protected function filename()
+    protected function filename(): string
     {
-        return 'Livro_' . date('YmdHis');
+        return 'Autores_' . date('YmdHis');
     }
 }

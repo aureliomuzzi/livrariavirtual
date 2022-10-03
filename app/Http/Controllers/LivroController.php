@@ -15,7 +15,7 @@ class LivroController extends Controller
      */
     public function index(LivroDataTable $dataTable)
     {
-        return $dataTable->render('users.list');
+        return $dataTable->render('livros.list');
     }
 
 

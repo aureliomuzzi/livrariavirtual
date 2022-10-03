@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Livros')
+@section('title', 'Autores')
 
 
 
 @section('content_header')
-<h1 class="m-0 text-dark"><i class="fas fa-books"></i>  Livros da Vitrine</h1>
+<h1 class="m-0 text-dark"><i class="fas fa-user"></i>  Lista de Autores </h1>
 @stop
 
 @section('content')

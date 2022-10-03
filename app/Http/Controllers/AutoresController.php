@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Autores;
 use Illuminate\Http\Request;
+use App\DataTables\AutoresDataTable;
 
 class AutoresController extends Controller
 {
@@ -12,10 +13,11 @@ class AutoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(AutoresDataTable $dataTable)
     {
-        //
+        return $dataTable->render('autores.list');
     }
+
 
     /**
      * Show the form for creating a new resource.

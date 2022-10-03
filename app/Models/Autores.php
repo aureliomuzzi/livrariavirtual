@@ -9,6 +9,7 @@ use App\Models\Livro;
 class Autores extends Model
 {
     use HasFactory;
+    public $table = 'autores';
 
     public function livros()
     {
