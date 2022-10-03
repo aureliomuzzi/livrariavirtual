@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Livro;
+use App\Models\Autores;
 use Illuminate\Http\Request;
 use App\DataTables\LivroDataTable;
 use App\Services\Livros;
@@ -28,7 +29,10 @@ class LivroController extends Controller
      */
     public function create()
     {
-        return view('livros.form');
+        $autores = Autores::all();
+        return view('livros.form', [
+            'autores' => $autores
+        ]);
     }
 
     /**
@@ -69,8 +73,10 @@ class LivroController extends Controller
      */
     public function edit(Livro $livro)
     {
+        $autores = Autores::selectRaw('id, CONCAT(firstName, " ", lastName) as nomeCompleto')->orderBy('nomeCompleto','asc')->get();
         return view('livros.form', [
-            'livro' => $livro
+            'livro' => $livro,
+            'autores' => $autores->pluck('nomeCompleto', 'id'),
         ]);
     }
 

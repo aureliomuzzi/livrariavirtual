@@ -141,6 +141,7 @@
                 }
             })
         }
+        $('.isSelect2').select2();
     </script>
 
 </body>

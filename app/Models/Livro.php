@@ -15,7 +15,7 @@ class Livro extends Model
         'isbn'
     ];
 
-    public function autores()
+    public function autor()
     {
         return $this->belongsTo(Autores::class);
     }

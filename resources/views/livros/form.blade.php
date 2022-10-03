@@ -37,7 +37,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     {!! Form::label('autor_id', 'Autor') !!}
-                                    {!! Form::text('autor_id', null, ['class' => 'form-control', 'placeholder' => 'Nome do Autor']) !!}
+                                    {!! Form::select('autor_id', isset($autores) ? $autores : [], null, ['class' => 'form-control select', 'placeholder' => 'Selecione um autor']) !!}
                                 </div>
                                 <div class="form-group">
                                     {!! Form::label('title', 'Titulo') !!}
