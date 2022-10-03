@@ -26,7 +26,7 @@ class AutoresController extends Controller
      */
     public function create()
     {
-        //
+        return view('autores.form');
     }
 
     /**
@@ -37,7 +37,14 @@ class AutoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dados = [
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+        ];
+
+        User::create($dados);
+
+        return redirect('/autores')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -59,7 +66,9 @@ class AutoresController extends Controller
      */
     public function edit(Autores $autores)
     {
-        //
+        return view('autores.form', [
+            'autores' => $autores
+        ]);
     }
 
     /**
@@ -71,7 +80,14 @@ class AutoresController extends Controller
      */
     public function update(Request $request, Autores $autores)
     {
-        //
+        $dados = [
+            'firstName' => $request->firstName,
+            'lastName' => $request->lastName,
+        ];
+
+        $user->update($dados);
+
+        return redirect('/autores')->with('mensagem', 'Registro criado com sucesso!');
     }
 
     /**
@@ -80,8 +96,10 @@ class AutoresController extends Controller
      * @param  \App\Models\Autores  $autores
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Autores $autores)
+    public function destroy($id)
     {
-        //
+        $autor = Autores::find($id);
+        $autor->delete();
+        return redirect('/autores')->with('mensagem', 'Registro excluído com sucesso!');
     }
 }

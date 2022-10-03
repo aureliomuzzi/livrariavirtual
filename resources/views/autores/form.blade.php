@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuários')
+@section('title', 'Autores')
 
 @section('content_header')
-<h1 class="m-0 text-dark"><i class="fas fa-user"></i> Usuários
+<h1 class="m-0 text-dark"><i class="fas fa-user"></i> Autores
     <small class="text-muted">- Formulário</small>
 </h1>
 @stop
